@@ -126,10 +126,10 @@ useHead({
 // Generate OG Image
 const article = articles.value as ContentItem | null
 defineOgImageComponent('Test', {
-  headline: 'Riyads Blog 👋',
+  headline: "XUELEI's Blog 👋",
   title: article?.seo?.title || '',
-  description: article?.seo?.description || '',
-  link: data.value.ogImage,
+  description: (article as any)?.seo?.description || '',
+  image: data.value.ogImage || data.value.image,
 })
 </script>
 

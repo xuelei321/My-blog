@@ -1,20 +1,20 @@
 export const navbarData = {
-  homeTitle: "Riyad's Blog",
+  homeTitle: "XUELEI's Blog",
 }
 
 export const footerData = {
-  author: 'Al Asad Nur Riyad',
-  aboutAuthor: 'Hi! I am Riyad, a Tech enthusiast, problem solver and software engineer. Currently working at FieldNation LLC.',
+  author: 'XUELEI',
+  aboutAuthor: 'Hello! I am XUELEI, a tech enthusiast student who loves solving problems and programming.',
   authorInterest:
-    "I have a fair amount of knowledge of Javascript, Typescript, VueJs, and Nuxt. If you have an interesting idea, either open source or paid let's connect.",
+    "Scorpio water sign, drawn to the laid-back vibe of R&B and the bold attitude of rap. A long-time listener of Jiang Yunsheng, hoping to connect with kindred spirits.",
   aboutTheSite:
-    "This is a personal blog site built with Nuxt3, TailwindCSS, NuxtContent, Nuxt Icon. Currently it's deployed in Vercel.",
+    "This is my cozy personal blog. I share birthday celebrations, daily trivial moments and random life stories as a college student.",
 }
 
 export const homePage = {
   title: 'Welcome To My Blog Site',
   description:
-    'Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.',
+    'Collect tiny joys in ordinary life.',
 }
 
 export const blogsPage = {
@@ -28,28 +28,28 @@ export const categoryPage = {
 }
 
 export const aboutPage = {
-  title: 'Al Asad Nur Riyad',
-  description: 'Software Engineer, Problem Solver, Web Enthusiast.',
+  title: 'XUELEI',
+  description: 'a college student majoring in Communication Engineering with INFJ personality.',
   aboutMe:
-    "Hello, fellow human! I'm a software wizard who spends most of his day crafting code spells at @FieldNation in the Workplace Operation team. When I'm not crafting code, you can find me summoning solutions to problems on online judges. Just don't ask me to cast any love spells, my magic only works on machines!",
+    "Hello! Welcome to my cozy little corner. This place doesn't chase trends or try to please everyone—it's simply my own space to record life, reflect on thoughts, and gather what I love. I'm just an ordinary college student who loves exploring, finding gentleness in daily trivialities, and growing slowly through the fragments of time. This blog is where I document learning insights, life snippets, spontaneous inspirations, and growth reflections. The scenery I've seen, the words I've read, the truths I've understood—may this tiny world not only hold my thoughts and passions, but also cross paths with your kindness, offering you a moment of comfort and strength.",
 }
 
 export const seoData = {
-  title: `Riyad's Blog | Riyads Blog`,
-  ogTitle: `Let's learn Javascript, Typescript, Vue, Nuxt, & Problem Solving - Riyads Blog | Riyad's Blog`,
-  description: `Hi I am Riyad. A Software Engineer at FieldNation, with over 3.5+ years experience in software development. - Riyads Blog | Riyad's Blog`,
-  twitterDescription: `Riyad's Blog, where I play around with Nuxt, Vue, and more and showcase my blog, resources, etc - Riyads Blog | Riyad's Blog`,
-  image: 'https://res.cloudinary.com/dmecmyphj/image/upload/v1673548905/nuxt-blog/cover_ntgs6u.webp',
+  title: `XUELEI's Blog | XUELEI's Blog`,
+  ogTitle: `XUELEI's Blog | My Daily Life & Random Stories`,
+  description: `I'm a college student named XUELEI. This is my personal space to record birthday moments, trivial daily stuff and random life shares.`,
+  twitterDescription: `A student's private blog for birthdays, daily snapshots and casual life journals`,
+  image: '/images/xuelei.jpg',
   mySite: 'https://blog-nurriyad.vercel.app',
   twitterHandle: '@qdnvubp',
-  mailAddress: 'asadnurriyad@gmail.com',
+  mailAddress: '3367216865@qq.com',
 }
 
 export const socialLinks = {
-  githubLink: 'https://github.com/nurRiyad',
-  linkedinLink: 'https://www.linkedin.com/in/nur-riyad/',
-  twitterLink: 'https://twitter.com/qdnvubp',
-  stackoverflowLink: 'https://stackoverflow.com/users/16781395/nur-riyad',
+  githubLink: 'https://github.com/xuelei321',
+  linkedinLink: 'https://www.linkedin.com/in/xueleilei/',
+  twitterLink: 'https://twitter.com/xuelei',
+  stackoverflowLink: 'https://stackoverflow.com/users/16781395/xuelei',
 }
 
 export const siteMetaData = [
