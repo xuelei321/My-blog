@@ -10,7 +10,7 @@ function parseCustomDate(dateStr: string): Date {
 }
 
 // Get Last 6 Publish Post from the content/blog directory
-const { data } = await useAsyncData('recent-post', () =>
+const { data, pending } = await useAsyncData('recent-post', () =>
   queryCollection('content')
     .all()
     .then((data) => {
@@ -60,7 +60,22 @@ useHead({
       <h2 class="text-4xl font-semibold text-black dark:text-zinc-300">Recent Post</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <!-- 骨架屏加载状态 - 仅客户端显示 -->
+    <ClientOnly>
+      <template #fallback>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div v-for="i in 3" :key="i" class="m-2 h-80 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse" />
+        </div>
+      </template>
+      <div v-if="pending" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div v-for="i in 3" :key="i" class="m-2">
+          <Skeleton type="card" animation="shimmer" class="h-full" />
+        </div>
+      </div>
+    </ClientOnly>
+
+    <!-- 实际内容 -->
+    <div v-if="!pending" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <template v-for="post in formattedData" :key="post.title">
         <BlogCard
           :path="post.path"

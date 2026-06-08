@@ -27,11 +27,13 @@ withDefaults(defineProps<Props>(), {
 <template>
   <article class="group border dark:border-gray-800 m-2 overflow-hidden rounded-2xl shadow-sm text-zinc-700 dark:text-zinc-300">
     <NuxtLink :to="path">
-      <NuxtImg
-        class="aspect-video w-full object-cover object-[center_30%] rounded-t-2xl shadow-lg group-hover:scale-[1.02] transition-all duration-500"
-        width="300"
+      <ProgressiveImage
+        class="aspect-video w-full rounded-t-2xl shadow-lg group-hover:scale-[1.02] transition-all duration-500"
         :src="image"
         :alt="alt"
+        :width="300"
+        :height="169"
+        loading="lazy"
       />
       <div class="px-3 pb-4">
         <div class="text-black dark:text-zinc-300 space-y-3 pt-3 pb-2">

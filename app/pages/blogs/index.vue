@@ -2,7 +2,7 @@
 import Fuse from 'fuse.js'
 import type { BlogPost } from '~/types/blog'
 
-const { data } = await useAsyncData('all-blog-post', () => queryCollection('content').all())
+const { data, pending } = await useAsyncData('all-blog-post', () => queryCollection('content').all())
 
 const elementPerPage = ref(5)
 const pageNumber = ref(1)
@@ -98,7 +98,22 @@ defineOgImage({
       />
     </div>
 
-    <div v-auto-animate class="space-y-5 my-5 px-4">
+    <!-- 骨架屏加载状态 - 仅客户端显示 -->
+    <ClientOnly>
+      <template #fallback>
+        <div class="space-y-5 my-5 px-4">
+          <div v-for="i in elementPerPage" :key="i" class="h-20 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse" />
+        </div>
+      </template>
+      <div v-if="pending" v-auto-animate class="space-y-5 my-5 px-4">
+        <div v-for="i in elementPerPage" :key="i" class="border dark:border-gray-800 rounded-2xl overflow-hidden">
+          <Skeleton type="list" animation="shimmer" class="h-full" />
+        </div>
+      </div>
+    </ClientOnly>
+
+    <!-- 实际内容 -->
+    <div v-if="!pending" v-auto-animate class="space-y-5 my-5 px-4">
       <template v-for="post in paginatedData" :key="post.title">
         <ArchiveCard
           :path="post.path"

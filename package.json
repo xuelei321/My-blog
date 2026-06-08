@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --check ./",
-    "format:fix": "prettier --write ./"
+    "format:fix": "prettier --write ./",
+    "analyze": "nuxt build --analyze",
+    "analyze:win": "set ANALYZE=true && nuxt build"
   },
   "devDependencies": {
     "@formkit/auto-animate": "^0.9.0",

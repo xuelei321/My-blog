@@ -11,6 +11,9 @@ useHead({
 
 <template>
   <div class="bg-[#F1F2F4] dark:text-zinc-300 dark:bg-slate-950">
+    <!-- 首屏优化 - 骨架屏与关键资源预加载 -->
+    <AboveTheFold />
+    
     <NuxtLoadingIndicator :height="4" color="#0284c7" error-color="#ef4444" />
     <NuxtLayout>
       <NuxtPage />

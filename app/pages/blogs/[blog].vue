@@ -4,7 +4,7 @@ import { navbarData, seoData } from '~/data'
 
 const { path } = useRoute()
 
-const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () => queryCollection('content').path(path).first())
+const { data: articles, error, pending } = await useAsyncData(`blog-post-${path}`, () => queryCollection('content').path(path).first())
 
 if (error.value) navigateTo('/404')
 
@@ -136,7 +136,22 @@ defineOgImageComponent('Test', {
 <template>
   <div>
     <div class="px-6 container max-w-5xl mx-auto">
-      <div>
+      <!-- 骨架屏加载状态 - 仅客户端显示 -->
+      <ClientOnly>
+        <template #fallback>
+          <div class="py-8 space-y-4">
+            <div class="h-8 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mx-auto animate-pulse" />
+            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mx-auto animate-pulse" />
+            <div class="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse" />
+          </div>
+        </template>
+        <div v-if="pending" class="py-8">
+          <Skeleton type="article" animation="shimmer" />
+        </div>
+      </ClientOnly>
+
+      <!-- 实际内容 -->
+      <div v-if="!pending">
         <BlogHeader
           :title="data.title"
           :image="data.image"
@@ -170,6 +185,14 @@ defineOgImageComponent('Test', {
           />
         </ClientOnly>
       </div>
+
+      <!-- View Counter -->
+      <div class="mt-8 flex items-center gap-4">
+        <BlogViewCounter :slug="path.split('/').pop() || ''" />
+      </div>
+
+      <!-- Related Posts -->
+      <BlogRelatedPosts :tags="data.tags" :current-path="path" />
 
       <!-- Previous and Next Blog Navigation -->
       <BlogNavigation :previous-post="previousPost" :next-post="nextPost" />
