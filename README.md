@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">Nuxt Blog A Personal Blog Site</h1>
+<h1 align="center">NuxtBlog Pro - 个人博客系统</h1>
 
 ### Built with
 
