@@ -28,11 +28,12 @@ withDefaults(defineProps<Props>(), {
   <article class="group border dark:border-gray-800 m-2 rounded-2xl overflow-hidden shadow-sm text-zinc-700 dark:text-zinc-300">
     <NuxtLink :to="path" class="grid grid-cols-1 sm:grid-cols-10 gap-1">
       <div class="sm:col-span-3">
-        <NuxtImg
+        <img
           class="h-full w-full object-cover object-center rounded-t-2xl sm:rounded-l-2xl sm:rounded-t-none shadow-lg group-hover:scale-[1.02] transition-all duration-500"
-          width="300"
           :src="image"
           :alt="alt"
+          loading="lazy"
+          @error="(event) => { const target = event.target as HTMLImageElement; if (target) target.src = '/blogs-img/blog.jpg'; }"
         />
       </div>
       <div class="sm:col-span-7 p-5">

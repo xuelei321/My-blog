@@ -27,14 +27,15 @@ withDefaults(defineProps<Props>(), {
 <template>
   <article class="group border dark:border-gray-800 m-2 overflow-hidden rounded-2xl shadow-sm text-zinc-700 dark:text-zinc-300">
     <NuxtLink :to="path">
-      <ProgressiveImage
-        class="aspect-video w-full rounded-t-2xl shadow-lg group-hover:scale-[1.02] transition-all duration-500"
-        :src="image"
-        :alt="alt"
-        :width="300"
-        :height="169"
-        loading="lazy"
-      />
+      <div class="aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+        <img
+          :src="image"
+          :alt="alt"
+          loading="lazy"
+          class="w-full h-full object-cover rounded-t-2xl shadow-lg group-hover:scale-[1.02] transition-all duration-500"
+          @error="$event.target.src = '/blogs-img/blog.jpg'"
+        />
+      </div>
       <div class="px-3 pb-4">
         <div class="text-black dark:text-zinc-300 space-y-3 pt-3 pb-2">
           <div class="flex items-center text-xs">

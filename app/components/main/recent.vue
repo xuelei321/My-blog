@@ -60,38 +60,39 @@ useHead({
       <h2 class="text-4xl font-semibold text-black dark:text-zinc-300">Recent Post</h2>
     </div>
 
-    <!-- 骨架屏加载状态 - 仅客户端显示 -->
-    <ClientOnly>
-      <template #fallback>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <!-- 内容区域 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <!-- 加载状态 -->
+      <ClientOnly>
+        <template #fallback>
           <div v-for="i in 3" :key="i" class="m-2 h-80 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse" />
-        </div>
-      </template>
-      <div v-if="pending" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <div v-for="i in 3" :key="i" class="m-2">
-          <Skeleton type="card" animation="shimmer" class="h-full" />
-        </div>
-      </div>
-    </ClientOnly>
-
-    <!-- 实际内容 -->
-    <div v-if="!pending" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      <template v-for="post in formattedData" :key="post.title">
-        <BlogCard
-          :path="post.path"
-          :title="post.title"
-          :date="post.date"
-          :description="post.description"
-          :image="post.image"
-          :alt="post.alt"
-          :og-image="post.ogImage"
-          :tags="post.tags"
-          :published="post.published"
-        />
-      </template>
-      <template v-if="data?.length === 0">
-        <BlogEmpty />
-      </template>
+        </template>
+        <template v-if="pending">
+          <div v-for="i in 3" :key="i" class="m-2">
+            <Skeleton type="card" animation="shimmer" class="h-full" />
+          </div>
+        </template>
+      </ClientOnly>
+      
+      <!-- 实际内容 - 仅在客户端渲染 -->
+      <ClientOnly>
+        <template v-for="post in formattedData" :key="post.title">
+          <BlogCard
+            :path="post.path"
+            :title="post.title"
+            :date="post.date"
+            :description="post.description"
+            :image="post.image"
+            :alt="post.alt"
+            :og-image="post.ogImage"
+            :tags="post.tags"
+            :published="post.published"
+          />
+        </template>
+        <template v-if="data?.length === 0">
+          <BlogEmpty />
+        </template>
+      </ClientOnly>
     </div>
   </div>
 </template>

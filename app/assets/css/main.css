@@ -1,0 +1,22 @@
+/* 全局视频样式 */
+video {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 博客内容中的视频 */
+.prose video,
+.blog-content video {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem auto;
+}
+
+/* 懒加载视频组件内的视频 */
+.lazy-video-wrapper video {
+  max-width: 100% !important; /* 保持组件内全宽 */
+}

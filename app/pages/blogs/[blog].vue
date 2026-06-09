@@ -136,22 +136,8 @@ defineOgImageComponent('Test', {
 <template>
   <div>
     <div class="px-6 container max-w-5xl mx-auto">
-      <!-- 骨架屏加载状态 - 仅客户端显示 -->
-      <ClientOnly>
-        <template #fallback>
-          <div class="py-8 space-y-4">
-            <div class="h-8 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mx-auto animate-pulse" />
-            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mx-auto animate-pulse" />
-            <div class="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse" />
-          </div>
-        </template>
-        <div v-if="pending" class="py-8">
-          <Skeleton type="article" animation="shimmer" />
-        </div>
-      </ClientOnly>
-
-      <!-- 实际内容 -->
-      <div v-if="!pending">
+      <!-- 内容区域 -->
+      <div>
         <BlogHeader
           :title="data.title"
           :image="data.image"

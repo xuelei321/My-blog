@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     'nuxt-llms',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/fonts',
+    // '@nuxt/fonts', // 禁用字体模块避免500错误
     '@nuxt/eslint',
     '@vueuse/nuxt',
     '@nuxtjs/robots',
@@ -37,6 +37,10 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
+
+  css: [
+    '~/assets/css/main.css',
+  ],
 
   sitemap: {
     sources: [seoData.mySite],
